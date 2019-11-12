@@ -1,6 +1,28 @@
 #include <stdio.h>
 #include <string.h>
 
+int my_strlen(char string[]){
+    int i=0,len=0;
+    while(string[i]!='\0'){
+        i++;
+        len++;
+    }
+    return len;
+}
+
+int my_strcmp(char string[], char string1[]){
+    int i;
+    if(my_strlen(string)!=my_strlen(string1))
+        return -1;
+    else{
+        for(i=0;i<my_strlen(string);i++){
+            if(string[i]!=string1[i])
+                return -1;
+        }
+        return 0;
+    }
+}
+
 void bubbleSort(char list[], int len) {
     int temp;
     int i=0, j;
@@ -26,19 +48,18 @@ void bubbleSort(char list[], int len) {
 void main() {
     char list[] = "abcdef";
     char list1[] = "abcdfe";
-    int len = sizeof(list) / sizeof(list[0]) - 1;
     int i;
-    bubbleSort(list, len);
-    bubbleSort(list1, len);
-    for (i = 0; i < len+1; i++)
+    bubbleSort(list, my_strlen(list));
+    bubbleSort(list1, my_strlen(list1));
+    for (i = 0; i < my_strlen(list); i++)
         printf("%c", list[i]);
 
     printf("\n");
 
-    for (i = 0; i < len+1; i++)
+    for (i = 0; i < my_strlen(list1); i++)
         printf("%c", list1[i]);
 
-    if(strcmp(list,list1)==0)
+    if(my_strcmp(list,list1)==0)
         printf("Anagramma!");
 }
 
