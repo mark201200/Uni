@@ -1,0 +1,10 @@
+		;Calcola AND di due array a e b e mette in OR i risultati, cioè: (A[0] AND B[0]) OR (A[1] AND B[1]) etc
+		MOV R1,#0	;R1 accumula gli OR degli AND (cioè è il risultato)
+		MOV R2,#0	;R2 è la posizione negli array
+		MOV R3,#4096;R3 è la fine dell'array, per esempio 4096, cioè 1024 (un int è 4bit)
+LOOP:	MOV R4,A(R2);Mette A[R2] in R4
+		AND R4,B(R2);R4= A[R2] AND B[R2]
+		OR R1,R4	;Faccio l'OR tra l'ultimo risultato parziale e il risultato che ho fino a adesso
+		ADD R2,#4	;Incremento di 4 la posizione, cioè vado avanti di un elemento
+		CMP R2,R3	;R2 è uguale a R3? (sono cioè arrivato alla fine dell'array?)
+		BLT LOOP	;Se è ancora minore, continuo con il loop
