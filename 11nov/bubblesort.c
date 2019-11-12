@@ -12,15 +12,11 @@ int my_strlen(char string[]) {
 
 int my_strcmp(char string[], char string1[]) {
     int i;
-    if (my_strlen(string) != my_strlen(string1))
-        return -1;
-    else {
         for (i = 0; i < my_strlen(string); i++) {
             if (string[i] != string1[i])
-                return -1;
+                return string[i] > string1[i] ? 1 : -1;
         }
         return 0;
-    }
 }
 
 void bubbleSort(char list[], int len) {
@@ -53,7 +49,8 @@ void main() {
     gets(list);
     printf("Inserisci la seconda stringa!:\n");
     gets(list1);
-    bubbleSort(list, my_strlen(list));
+    printf("\n quello vero: %d   quello mio: %d", strcmp(list, list1), my_strcmp(list, list1));
+    /*bubbleSort(list, my_strlen(list));
     bubbleSort(list1, my_strlen(list1));
 
     for (i = 0; i < my_strlen(list); i++)
@@ -66,5 +63,5 @@ void main() {
 
     if (my_strcmp(list, list1) == 0)
         printf("\nAnagramma!");
-    else printf("\nNon e' un anagramma :(");
+    else printf("\nNon e' un anagramma :(");*/
 }
