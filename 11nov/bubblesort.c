@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-int my_strlen(char string[]){
-    int i=0,len=0;
-    while(string[i]!='\0'){
+int my_strlen(char string[]) {
+    int i = 0, len = 0;
+    while (string[i] != '\0') {
         i++;
         len++;
     }
     return len;
 }
 
-int my_strcmp(char string[], char string1[]){
+int my_strcmp(char string[], char string1[]) {
     int i;
-    if(my_strlen(string)!=my_strlen(string1))
+    if (my_strlen(string) != my_strlen(string1))
         return -1;
-    else{
-        for(i=0;i<my_strlen(string);i++){
-            if(string[i]!=string1[i])
+    else {
+        for (i = 0; i < my_strlen(string); i++) {
+            if (string[i] != string1[i])
                 return -1;
         }
         return 0;
@@ -25,7 +25,7 @@ int my_strcmp(char string[], char string1[]){
 
 void bubbleSort(char list[], int len) {
     int temp;
-    int i=0, j;
+    int i = 0, j;
     int swapped = 1;
 
     while (swapped == 1) {
@@ -34,7 +34,7 @@ void bubbleSort(char list[], int len) {
             //Entro nella condizione lunghezza-1 * lunghezza-1-i volte, nel caso peggiore. quindi, visto che il
             //-1 e il -1-n non ci interessano, l'ordine di grandezza è lunghezza^2
             if (list[j] > list[j + 1]) {
-                printf("swappo %c e %c, posizione %d e %d \n",list[j],list[j + 1],j,j+1);
+                printf("swappo %c e %c, posizione %d e %d \n", list[j], list[j + 1], j, j + 1);
                 temp = list[j];
                 list[j] = list[j + 1];
                 list[j + 1] = temp;
@@ -46,11 +46,16 @@ void bubbleSort(char list[], int len) {
 }
 
 void main() {
-    char list[] = "abcdef";
-    char list1[] = "abcdfe";
+    char list[100];
+    char list1[100];
     int i;
+    printf("Inserisci la prima stringa!:\n");
+    gets(list);
+    printf("Inserisci la seconda stringa!:\n");
+    gets(list1);
     bubbleSort(list, my_strlen(list));
     bubbleSort(list1, my_strlen(list1));
+
     for (i = 0; i < my_strlen(list); i++)
         printf("%c", list[i]);
 
@@ -59,8 +64,7 @@ void main() {
     for (i = 0; i < my_strlen(list1); i++)
         printf("%c", list1[i]);
 
-    if(my_strcmp(list,list1)==0)
-        printf("Anagramma!");
+    if (my_strcmp(list, list1) == 0)
+        printf("\nAnagramma!");
+    else printf("\nNon e' un anagramma :(");
 }
-
-//TODO: creare il mio strcmp
