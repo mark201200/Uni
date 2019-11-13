@@ -49,8 +49,7 @@ void main() {
     gets(list);
     printf("Inserisci la seconda stringa!:\n");
     gets(list1);
-    printf("\n quello vero: %d   quello mio: %d", strcmp(list, list1), my_strcmp(list, list1));
-    /*bubbleSort(list, my_strlen(list));
+    bubbleSort(list, my_strlen(list));
     bubbleSort(list1, my_strlen(list1));
 
     for (i = 0; i < my_strlen(list); i++)
@@ -63,5 +62,5 @@ void main() {
 
     if (my_strcmp(list, list1) == 0)
         printf("\nAnagramma!");
-    else printf("\nNon e' un anagramma :(");*/
+    else printf("\nNon e' un anagramma :(");
 }
