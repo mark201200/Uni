@@ -11,8 +11,12 @@ char *my_strcat(char s1[], char s2[]) {
 }
 
 void main() {
-    char a[] = "ciao";
-    char b[] = "fra!telloooo";
+    char a[100];
+    char b[100];
+    printf("Inserisci la prima stringa!:\n");
+    gets(a);
+    printf("Inserisci la seconda stringa!:\n");
+    gets(b);
     char *c = my_strcat(a, b);
-    printf("%s ", c);
+    printf("Stringa risult%s ", c);
 }
