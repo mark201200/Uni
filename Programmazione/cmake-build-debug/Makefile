@@ -135,6 +135,19 @@ stringconcat/fast:
 	$(MAKE) -f CMakeFiles\stringconcat.dir\build.make CMakeFiles/stringconcat.dir/build
 .PHONY : stringconcat/fast
 
+#=============================================================================
+# Target rules for targets named sommarray
+
+# Build rule for target.
+sommarray: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 sommarray
+.PHONY : sommarray
+
+# fast build rule for target.
+sommarray/fast:
+	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/build
+.PHONY : sommarray/fast
+
 11nov/bubblesort.obj: 11nov/bubblesort.c.obj
 
 .PHONY : 11nov/bubblesort.obj
@@ -189,6 +202,33 @@ stringconcat/fast:
 	$(MAKE) -f CMakeFiles\stringconcat.dir\build.make CMakeFiles/stringconcat.dir/12nov/stringconcat.c.s
 .PHONY : 12nov/stringconcat.c.s
 
+19nov/sommarray.obj: 19nov/sommarray.c.obj
+
+.PHONY : 19nov/sommarray.obj
+
+# target to build an object file
+19nov/sommarray.c.obj:
+	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/19nov/sommarray.c.obj
+.PHONY : 19nov/sommarray.c.obj
+
+19nov/sommarray.i: 19nov/sommarray.c.i
+
+.PHONY : 19nov/sommarray.i
+
+# target to preprocess a source file
+19nov/sommarray.c.i:
+	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/19nov/sommarray.c.i
+.PHONY : 19nov/sommarray.c.i
+
+19nov/sommarray.s: 19nov/sommarray.c.s
+
+.PHONY : 19nov/sommarray.s
+
+# target to generate assembly for a file
+19nov/sommarray.c.s:
+	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/19nov/sommarray.c.s
+.PHONY : 19nov/sommarray.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -198,6 +238,7 @@ help:
 	@echo ... bubblesort
 	@echo ... edit_cache
 	@echo ... stringconcat
+	@echo ... sommarray
 	@echo ... rebuild_cache
 	@echo ... 11nov/bubblesort.obj
 	@echo ... 11nov/bubblesort.i
@@ -205,6 +246,9 @@ help:
 	@echo ... 12nov/stringconcat.obj
 	@echo ... 12nov/stringconcat.i
 	@echo ... 12nov/stringconcat.s
+	@echo ... 19nov/sommarray.obj
+	@echo ... 19nov/sommarray.i
+	@echo ... 19nov/sommarray.s
 .PHONY : help
 
 
