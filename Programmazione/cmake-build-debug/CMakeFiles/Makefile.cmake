@@ -53,7 +53,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/bubblesort-int.dir/DependInfo.cmake"
   "CMakeFiles/bubblesort.dir/DependInfo.cmake"
   "CMakeFiles/stringconcat.dir/DependInfo.cmake"
   "CMakeFiles/sommarray.dir/DependInfo.cmake"
+  "CMakeFiles/bubblesort-stringarray.dir/DependInfo.cmake"
   )

@@ -2,3 +2,5 @@
 add_executable(bubblesort 11nov/bubblesort.c)
 add_executable(stringconcat 12nov/stringconcat.c)
 add_executable(sommarray 19nov/sommarray.c)
+add_executable(bubblesort-int 19nov/bubblesort-int.c)
+add_executable(bubblesort-stringarray 19nov/bubblesort-stringarray.cpp)

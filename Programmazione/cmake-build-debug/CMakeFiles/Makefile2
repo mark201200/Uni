@@ -52,16 +52,20 @@ CMAKE_BINARY_DIR = C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmak
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/bubblesort-int.dir/all
 all: CMakeFiles/bubblesort.dir/all
 all: CMakeFiles/stringconcat.dir/all
 all: CMakeFiles/sommarray.dir/all
+all: CMakeFiles/bubblesort-stringarray.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
+clean: CMakeFiles/bubblesort-int.dir/clean
 clean: CMakeFiles/bubblesort.dir/clean
 clean: CMakeFiles/stringconcat.dir/clean
 clean: CMakeFiles/sommarray.dir/clean
+clean: CMakeFiles/bubblesort-stringarray.dir/clean
 
 .PHONY : clean
 
@@ -69,6 +73,33 @@ clean: CMakeFiles/sommarray.dir/clean
 preinstall:
 
 .PHONY : preinstall
+
+#=============================================================================
+# Target rules for target CMakeFiles/bubblesort-int.dir
+
+# All Build rule for target.
+CMakeFiles/bubblesort-int.dir/all:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/depend
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target bubblesort-int"
+.PHONY : CMakeFiles/bubblesort-int.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/bubblesort-int.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/bubblesort-int.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/bubblesort-int.dir/rule
+
+# Convenience name for target.
+bubblesort-int: CMakeFiles/bubblesort-int.dir/rule
+
+.PHONY : bubblesort-int
+
+# clean rule for target.
+CMakeFiles/bubblesort-int.dir/clean:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/clean
+.PHONY : CMakeFiles/bubblesort-int.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/bubblesort.dir
@@ -104,7 +135,7 @@ CMakeFiles/bubblesort.dir/clean:
 CMakeFiles/stringconcat.dir/all:
 	$(MAKE) -f CMakeFiles\stringconcat.dir\build.make CMakeFiles/stringconcat.dir/depend
 	$(MAKE) -f CMakeFiles\stringconcat.dir\build.make CMakeFiles/stringconcat.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target stringconcat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=9,10 "Built target stringconcat"
 .PHONY : CMakeFiles/stringconcat.dir/all
 
 # Build rule for subdir invocation for target.
@@ -131,7 +162,7 @@ CMakeFiles/stringconcat.dir/clean:
 CMakeFiles/sommarray.dir/all:
 	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/depend
 	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target sommarray"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target sommarray"
 .PHONY : CMakeFiles/sommarray.dir/all
 
 # Build rule for subdir invocation for target.
@@ -150,6 +181,33 @@ sommarray: CMakeFiles/sommarray.dir/rule
 CMakeFiles/sommarray.dir/clean:
 	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/clean
 .PHONY : CMakeFiles/sommarray.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/bubblesort-stringarray.dir
+
+# All Build rule for target.
+CMakeFiles/bubblesort-stringarray.dir/all:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/depend
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target bubblesort-stringarray"
+.PHONY : CMakeFiles/bubblesort-stringarray.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/bubblesort-stringarray.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/bubblesort-stringarray.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/bubblesort-stringarray.dir/rule
+
+# Convenience name for target.
+bubblesort-stringarray: CMakeFiles/bubblesort-stringarray.dir/rule
+
+.PHONY : bubblesort-stringarray
+
+# clean rule for target.
+CMakeFiles/bubblesort-stringarray.dir/clean:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/clean
+.PHONY : CMakeFiles/bubblesort-stringarray.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

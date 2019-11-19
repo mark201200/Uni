@@ -110,6 +110,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named bubblesort-int
+
+# Build rule for target.
+bubblesort-int: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 bubblesort-int
+.PHONY : bubblesort-int
+
+# fast build rule for target.
+bubblesort-int/fast:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/build
+.PHONY : bubblesort-int/fast
+
+#=============================================================================
 # Target rules for targets named bubblesort
 
 # Build rule for target.
@@ -147,6 +160,19 @@ sommarray: cmake_check_build_system
 sommarray/fast:
 	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/build
 .PHONY : sommarray/fast
+
+#=============================================================================
+# Target rules for targets named bubblesort-stringarray
+
+# Build rule for target.
+bubblesort-stringarray: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 bubblesort-stringarray
+.PHONY : bubblesort-stringarray
+
+# fast build rule for target.
+bubblesort-stringarray/fast:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/build
+.PHONY : bubblesort-stringarray/fast
 
 11nov/bubblesort.obj: 11nov/bubblesort.c.obj
 
@@ -202,6 +228,60 @@ sommarray/fast:
 	$(MAKE) -f CMakeFiles\stringconcat.dir\build.make CMakeFiles/stringconcat.dir/12nov/stringconcat.c.s
 .PHONY : 12nov/stringconcat.c.s
 
+19nov/bubblesort-int.obj: 19nov/bubblesort-int.c.obj
+
+.PHONY : 19nov/bubblesort-int.obj
+
+# target to build an object file
+19nov/bubblesort-int.c.obj:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/19nov/bubblesort-int.c.obj
+.PHONY : 19nov/bubblesort-int.c.obj
+
+19nov/bubblesort-int.i: 19nov/bubblesort-int.c.i
+
+.PHONY : 19nov/bubblesort-int.i
+
+# target to preprocess a source file
+19nov/bubblesort-int.c.i:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/19nov/bubblesort-int.c.i
+.PHONY : 19nov/bubblesort-int.c.i
+
+19nov/bubblesort-int.s: 19nov/bubblesort-int.c.s
+
+.PHONY : 19nov/bubblesort-int.s
+
+# target to generate assembly for a file
+19nov/bubblesort-int.c.s:
+	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/19nov/bubblesort-int.c.s
+.PHONY : 19nov/bubblesort-int.c.s
+
+19nov/bubblesort-stringarray.obj: 19nov/bubblesort-stringarray.cpp.obj
+
+.PHONY : 19nov/bubblesort-stringarray.obj
+
+# target to build an object file
+19nov/bubblesort-stringarray.cpp.obj:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.obj
+.PHONY : 19nov/bubblesort-stringarray.cpp.obj
+
+19nov/bubblesort-stringarray.i: 19nov/bubblesort-stringarray.cpp.i
+
+.PHONY : 19nov/bubblesort-stringarray.i
+
+# target to preprocess a source file
+19nov/bubblesort-stringarray.cpp.i:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.i
+.PHONY : 19nov/bubblesort-stringarray.cpp.i
+
+19nov/bubblesort-stringarray.s: 19nov/bubblesort-stringarray.cpp.s
+
+.PHONY : 19nov/bubblesort-stringarray.s
+
+# target to generate assembly for a file
+19nov/bubblesort-stringarray.cpp.s:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.s
+.PHONY : 19nov/bubblesort-stringarray.cpp.s
+
 19nov/sommarray.obj: 19nov/sommarray.c.obj
 
 .PHONY : 19nov/sommarray.obj
@@ -235,10 +315,12 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... bubblesort-int
 	@echo ... bubblesort
 	@echo ... edit_cache
 	@echo ... stringconcat
 	@echo ... sommarray
+	@echo ... bubblesort-stringarray
 	@echo ... rebuild_cache
 	@echo ... 11nov/bubblesort.obj
 	@echo ... 11nov/bubblesort.i
@@ -246,6 +328,12 @@ help:
 	@echo ... 12nov/stringconcat.obj
 	@echo ... 12nov/stringconcat.i
 	@echo ... 12nov/stringconcat.s
+	@echo ... 19nov/bubblesort-int.obj
+	@echo ... 19nov/bubblesort-int.i
+	@echo ... 19nov/bubblesort-int.s
+	@echo ... 19nov/bubblesort-stringarray.obj
+	@echo ... 19nov/bubblesort-stringarray.i
+	@echo ... 19nov/bubblesort-stringarray.s
 	@echo ... 19nov/sommarray.obj
 	@echo ... 19nov/sommarray.i
 	@echo ... 19nov/sommarray.s

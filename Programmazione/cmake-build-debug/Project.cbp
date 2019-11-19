@@ -17,6 +17,48 @@
 					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="bubblesort-int">
+				<Option output="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/bubblesort-int.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 bubblesort-int"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bubblesort-int/fast">
+				<Option output="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/bubblesort-int.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 bubblesort-int/fast"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="bubblesort">
 				<Option output="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/bubblesort.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
@@ -153,6 +195,48 @@
 					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="bubblesort-stringarray">
+				<Option output="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/bubblesort-stringarray.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 bubblesort-stringarray"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bubblesort-stringarray/fast">
+				<Option output="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/bubblesort-stringarray.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 bubblesort-stringarray/fast"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug"/>
 				<Option type="4"/>
@@ -169,6 +253,12 @@
 		</Unit>
 		<Unit filename="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/12nov/stringconcat.c">
 			<Option target="stringconcat"/>
+		</Unit>
+		<Unit filename="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/19nov/bubblesort-int.c">
+			<Option target="bubblesort-int"/>
+		</Unit>
+		<Unit filename="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/19nov/bubblesort-stringarray.cpp">
+			<Option target="bubblesort-stringarray"/>
 		</Unit>
 		<Unit filename="C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/19nov/sommarray.c">
 			<Option target="sommarray"/>
