@@ -1,8 +1,9 @@
+//sorta un array di stringhe
 #include <stdio.h>
 #include <string.h>
-//sorta un array di stringhe
-const int l1 = 10;
-const int l2 = 50;
+
+#define l2 50
+#define l1 10
 
 void bubbleSort(char list[l1][l2]) {
     char temp[l2];

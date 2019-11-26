@@ -57,6 +57,7 @@ all: CMakeFiles/bubblesort.dir/all
 all: CMakeFiles/stringconcat.dir/all
 all: CMakeFiles/sommarray.dir/all
 all: CMakeFiles/bubblesort-stringarray.dir/all
+all: CMakeFiles/structs.dir/all
 
 .PHONY : all
 
@@ -66,6 +67,7 @@ clean: CMakeFiles/bubblesort.dir/clean
 clean: CMakeFiles/stringconcat.dir/clean
 clean: CMakeFiles/sommarray.dir/clean
 clean: CMakeFiles/bubblesort-stringarray.dir/clean
+clean: CMakeFiles/structs.dir/clean
 
 .PHONY : clean
 
@@ -208,6 +210,33 @@ bubblesort-stringarray: CMakeFiles/bubblesort-stringarray.dir/rule
 CMakeFiles/bubblesort-stringarray.dir/clean:
 	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/clean
 .PHONY : CMakeFiles/bubblesort-stringarray.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/structs.dir
+
+# All Build rule for target.
+CMakeFiles/structs.dir/all:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/depend
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles --progress-num=11,12 "Built target structs"
+.PHONY : CMakeFiles/structs.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/structs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/structs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Documents\Uni\Esercizi-Git\Programmazione\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/structs.dir/rule
+
+# Convenience name for target.
+structs: CMakeFiles/structs.dir/rule
+
+.PHONY : structs
+
+# clean rule for target.
+CMakeFiles/structs.dir/clean:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/clean
+.PHONY : CMakeFiles/structs.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

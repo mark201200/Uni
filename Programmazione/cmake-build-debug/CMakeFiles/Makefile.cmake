@@ -58,4 +58,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/stringconcat.dir/DependInfo.cmake"
   "CMakeFiles/sommarray.dir/DependInfo.cmake"
   "CMakeFiles/bubblesort-stringarray.dir/DependInfo.cmake"
+  "CMakeFiles/structs.dir/DependInfo.cmake"
   )

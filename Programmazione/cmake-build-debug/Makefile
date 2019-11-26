@@ -174,6 +174,19 @@ bubblesort-stringarray/fast:
 	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/build
 .PHONY : bubblesort-stringarray/fast
 
+#=============================================================================
+# Target rules for targets named structs
+
+# Build rule for target.
+structs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 structs
+.PHONY : structs
+
+# fast build rule for target.
+structs/fast:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/build
+.PHONY : structs/fast
+
 11nov/bubblesort.obj: 11nov/bubblesort.c.obj
 
 .PHONY : 11nov/bubblesort.obj
@@ -255,32 +268,32 @@ bubblesort-stringarray/fast:
 	$(MAKE) -f CMakeFiles\bubblesort-int.dir\build.make CMakeFiles/bubblesort-int.dir/19nov/bubblesort-int.c.s
 .PHONY : 19nov/bubblesort-int.c.s
 
-19nov/bubblesort-stringarray.obj: 19nov/bubblesort-stringarray.cpp.obj
+19nov/bubblesort-stringarray.obj: 19nov/bubblesort-stringarray.c.obj
 
 .PHONY : 19nov/bubblesort-stringarray.obj
 
 # target to build an object file
-19nov/bubblesort-stringarray.cpp.obj:
-	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.obj
-.PHONY : 19nov/bubblesort-stringarray.cpp.obj
+19nov/bubblesort-stringarray.c.obj:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.c.obj
+.PHONY : 19nov/bubblesort-stringarray.c.obj
 
-19nov/bubblesort-stringarray.i: 19nov/bubblesort-stringarray.cpp.i
+19nov/bubblesort-stringarray.i: 19nov/bubblesort-stringarray.c.i
 
 .PHONY : 19nov/bubblesort-stringarray.i
 
 # target to preprocess a source file
-19nov/bubblesort-stringarray.cpp.i:
-	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.i
-.PHONY : 19nov/bubblesort-stringarray.cpp.i
+19nov/bubblesort-stringarray.c.i:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.c.i
+.PHONY : 19nov/bubblesort-stringarray.c.i
 
-19nov/bubblesort-stringarray.s: 19nov/bubblesort-stringarray.cpp.s
+19nov/bubblesort-stringarray.s: 19nov/bubblesort-stringarray.c.s
 
 .PHONY : 19nov/bubblesort-stringarray.s
 
 # target to generate assembly for a file
-19nov/bubblesort-stringarray.cpp.s:
-	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.cpp.s
-.PHONY : 19nov/bubblesort-stringarray.cpp.s
+19nov/bubblesort-stringarray.c.s:
+	$(MAKE) -f CMakeFiles\bubblesort-stringarray.dir\build.make CMakeFiles/bubblesort-stringarray.dir/19nov/bubblesort-stringarray.c.s
+.PHONY : 19nov/bubblesort-stringarray.c.s
 
 19nov/sommarray.obj: 19nov/sommarray.c.obj
 
@@ -309,6 +322,33 @@ bubblesort-stringarray/fast:
 	$(MAKE) -f CMakeFiles\sommarray.dir\build.make CMakeFiles/sommarray.dir/19nov/sommarray.c.s
 .PHONY : 19nov/sommarray.c.s
 
+26nov/structs.obj: 26nov/structs.c.obj
+
+.PHONY : 26nov/structs.obj
+
+# target to build an object file
+26nov/structs.c.obj:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/26nov/structs.c.obj
+.PHONY : 26nov/structs.c.obj
+
+26nov/structs.i: 26nov/structs.c.i
+
+.PHONY : 26nov/structs.i
+
+# target to preprocess a source file
+26nov/structs.c.i:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/26nov/structs.c.i
+.PHONY : 26nov/structs.c.i
+
+26nov/structs.s: 26nov/structs.c.s
+
+.PHONY : 26nov/structs.s
+
+# target to generate assembly for a file
+26nov/structs.c.s:
+	$(MAKE) -f CMakeFiles\structs.dir\build.make CMakeFiles/structs.dir/26nov/structs.c.s
+.PHONY : 26nov/structs.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -321,6 +361,7 @@ help:
 	@echo ... stringconcat
 	@echo ... sommarray
 	@echo ... bubblesort-stringarray
+	@echo ... structs
 	@echo ... rebuild_cache
 	@echo ... 11nov/bubblesort.obj
 	@echo ... 11nov/bubblesort.i
@@ -337,6 +378,9 @@ help:
 	@echo ... 19nov/sommarray.obj
 	@echo ... 19nov/sommarray.i
 	@echo ... 19nov/sommarray.s
+	@echo ... 26nov/structs.obj
+	@echo ... 26nov/structs.i
+	@echo ... 26nov/structs.s
 .PHONY : help
 
 

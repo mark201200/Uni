@@ -4,4 +4,5 @@ C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMake
 C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMakeFiles/stringconcat.dir
 C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMakeFiles/sommarray.dir
 C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMakeFiles/bubblesort-stringarray.dir
+C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMakeFiles/structs.dir
 C:/Users/Admin/Documents/Uni/Esercizi-Git/Programmazione/cmake-build-debug/CMakeFiles/rebuild_cache.dir
