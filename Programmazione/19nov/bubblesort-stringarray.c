@@ -1,5 +1,5 @@
-#include <cstdio>
-#include <cstring>
+#include <stdio.h>
+#include <string.h>
 //sorta un array di stringhe
 const int l1 = 10;
 const int l2 = 50;
