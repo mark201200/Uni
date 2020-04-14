@@ -7,9 +7,9 @@ typedef struct punto punto;
 
 void DisegnaPunti(punto p[], int n) {
     int i, j, x, f;
-    int maxx = -1;
-    int maxy = -1;
-    for (i = 0; i < n; i++) {
+    int maxx = p[0].x;
+    int maxy = p[0].y;
+    for (i = 1; i < n; i++) {
         if (p[i].x > maxx) maxx = p[i].x;
         if (p[i].y > maxy) maxy = p[i].y;
     }
