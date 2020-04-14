@@ -9,14 +9,15 @@ struct nodo {
 typedef struct nodo nodo;
 
 nodo *ListaMediano(nodo *a) {
-    nodo* n1 = a;
-    nodo* n2 = a;
+    nodo* n1 = a;   //puntatore che scorre normalmente
+    nodo* n2 = a;   //puntatore che scorre velocemente (2 alla volta)
 
     while(n2->succ != NULL && n2->succ->succ != NULL){
         n1=n1->succ;
         n2=n2->succ->succ;
     }
-
+    //quando il puntatore "veloce" raggiunge la fine della lista, il puntatore normale si troverà in mezzo.
+    //costo: O(n), infatti scorro la lista solo una volta.
     return n1;
 }
 
