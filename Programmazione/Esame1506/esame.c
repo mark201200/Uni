@@ -28,8 +28,8 @@ int rimuovi_stringa(char *a, char *b) {
 }
 
 int main() {
-    char a[] = "programmazione dei calcolatori";
-    char b[] = "azione";
+    char a[] = "seessosso";
+    char b[] = "esso";
     int i = rimuovi_stringa(a, b);
     printf("\n%d\n%s", i, a);
 }
