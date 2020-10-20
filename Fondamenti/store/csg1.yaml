@@ -1,0 +1,62 @@
+!!python/object:grammar.cs.cs_grammar.CSG
+all_chars: true
+axiom: S
+non_terminals: !!set
+  F: null
+  I: null
+  M: null
+  S: null
+productions:
+  ? !!python/tuple
+  - I
+  - M
+  : !!set
+    ? !!python/tuple
+    - I
+    - a
+    : null
+    ? !!python/tuple
+    - a
+    - a
+    : null
+  ? !!python/tuple
+  - S
+  : !!set
+    ? !!python/tuple
+    - I
+    - a
+    - F
+    : null
+    ? !!python/tuple
+    - a
+    : null
+    ? !!python/tuple
+    - a
+    - a
+    : null
+  ? !!python/tuple
+  - a
+  - F
+  : !!set
+    ? !!python/tuple
+    - M
+    - a
+    - a
+    : null
+    ? !!python/tuple
+    - M
+    - a
+    - a
+    - F
+    : null
+  ? !!python/tuple
+  - a
+  - M
+  : !!set
+    ? !!python/tuple
+    - M
+    - a
+    - a
+    : null
+terminals: !!set
+  a: null

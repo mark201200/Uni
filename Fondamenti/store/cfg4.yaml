@@ -1,0 +1,53 @@
+!!python/object:grammar.cf.cf_grammar.CFG
+all_chars: true
+axiom: E
+cnf: false
+gnf: false
+no_null_production: false
+no_unit_production: false
+non_terminals: !!set
+  E: null
+  F: null
+  T: null
+null_string_produced: false
+productions:
+  ? !!python/tuple
+  - E
+  : !!set
+    ? !!python/tuple
+    - E
+    - +
+    - T
+    : null
+    ? !!python/tuple
+    - T
+    : null
+  ? !!python/tuple
+  - F
+  : !!set
+    ? !!python/tuple
+    - (
+    - E
+    - )
+    : null
+    ? !!python/tuple
+    - i
+    : null
+  ? !!python/tuple
+  - T
+  : !!set
+    ? !!python/tuple
+    - F
+    : null
+    ? !!python/tuple
+    - T
+    - '*'
+    - F
+    : null
+reduced: false
+terminals: !!set
+  (: null
+  ): null
+  '*': null
+  +: null
+  i: null

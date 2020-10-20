@@ -1,0 +1,32 @@
+!!python/object:grammar.general.general_grammar.GG
+all_chars: true
+axiom: S
+non_terminals: !!set
+  A: null
+  S: null
+productions:
+  ? !!python/tuple
+  - A
+  : !!set
+    !!python/tuple []: null
+  ? !!python/tuple
+  - S
+  : !!set
+    ? !!python/tuple
+    - a
+    - A
+    - b
+    : null
+  ? !!python/tuple
+  - a
+  - A
+  : !!set
+    ? !!python/tuple
+    - a
+    - a
+    - A
+    - b
+    : null
+terminals: !!set
+  a: null
+  b: null

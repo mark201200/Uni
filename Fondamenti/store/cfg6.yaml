@@ -1,0 +1,31 @@
+!!python/object:grammar.cf.cf_grammar.CFG
+all_chars: true
+axiom: S
+cnf: false
+gnf: false
+no_null_production: false
+no_unit_production: false
+non_terminals: !!set
+  S: null
+null_string_produced: false
+productions:
+  ? !!python/tuple
+  - S
+  : !!set
+    ? !!python/tuple
+    - (
+    - )
+    : null
+    ? !!python/tuple
+    - (
+    - S
+    - )
+    : null
+    ? !!python/tuple
+    - S
+    - S
+    : null
+reduced: false
+terminals: !!set
+  (: null
+  ): null
