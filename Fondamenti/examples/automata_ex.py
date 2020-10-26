@@ -419,7 +419,7 @@ dtm = DTM(
         },
         'q3': {
             'y': ('q3', 'y', 'R'),
-            '.': ('q4', '.', 'R')
+            '.': ('q4', '.', 'N')
         }
     },
     initial_state='q0',
@@ -429,6 +429,8 @@ dtm = DTM(
 
 
 print(dtm)
+
+dtm.report_computation(Tools.tokens('01'))
 
 dtm1 = DTM(
     states={'q0', 'q1', 'q2', 'q3'},

@@ -430,6 +430,8 @@ dtm = DTM(
 
 print(dtm)
 
+dtm.report_computation(Tools.tokens('000111'))
+
 dtm1 = DTM(
     states={'q0', 'q1', 'q2', 'q3'},
     input_symbols={'00', '11'},

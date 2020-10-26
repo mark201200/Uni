@@ -34,7 +34,7 @@ print(rg)
 
 # Generazione di una derivazione casuale
 
-d = rg.random_derivation()
+d = rg.random_derivation(n=3)
 
 
 # Stampa della derivazione: nella colonna a sx la sequenza di forme di frasi; nella colonna a dx la sequenza di produzioni applicate
@@ -42,12 +42,12 @@ d = rg.random_derivation()
 print(d)
 
 # CF grammar
-cfg = CFG(
+cfg = GG(
     terminals={'a', 'b', 'c'},
     non_terminals={'S', 'A', 'B', 'C'},
     axiom='S',
     productions={
-        ('S',): {('a', 'S', 'a', 'S'), ('a', 'A'), ('A', 'B')},
+        ('S', 'A'): {('a', 'S', 'a', 'S'), ('a', 'A'), ('A', 'B')},
         ('A',): {('b', 'b', 'A', 'B'), ('b', 'b'), ('b', 'A', 'a', 'B'), ('B',)},
         ('B',): {('c', 'A', 'A'), ('c', 'c'), ('C',), ()},
         ('C',): {('c', 'C'), ('c',), ('S',)}
@@ -104,6 +104,8 @@ csg0 = CSG(
         }
     )
 
+
+print(csg0)
 
 d = csg0.random_derivation()
 
@@ -218,6 +220,8 @@ cfg4 = CFG(
         'F': {'i', '(E)'}
         })
     )
+
+print(cfg4)
 
 cfg5 = CFG(
     terminals={'a', 'b'},

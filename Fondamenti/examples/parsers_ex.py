@@ -139,4 +139,3 @@ rd = RD_parser(regex1)
 vars(rd)
 
 
-
