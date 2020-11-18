@@ -9,7 +9,7 @@ import it.uniroma2.art.lmp.ex01.model.impl.*;
 public class Runner {
     public static void main(String[] args) {
         //richiamare il costruttore
-        Studente studInf= new StudenteImpl("Marco","Altomare", Cdl.INFORMATICA);
+        Studente studInf = new StudenteImpl("Marco", "Altomare", Cdl.INFORMATICA);
         Professore prof = new ProfessoreImpl("Armando", "Stellato", "LMP");
 
         System.out.println(studInf);
