@@ -1,0 +1,5 @@
+filetype:ristorante
+sede:Via Pinco Pallino 1
+partita_IVA:1234abcd
+categoria:pizzeria
+in_attivita_dal:2000
