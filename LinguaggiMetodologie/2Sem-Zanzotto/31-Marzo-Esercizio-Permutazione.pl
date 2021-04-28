@@ -7,5 +7,5 @@ x_in_L(X,[H|L],[H|TL]):-
 permutazione([],[]).
 
 permutazione([HL|TL],TP):-
-    x_in_L(HL,TP,R),
-    permutazione(TL,R).
+    permutazione(TL,R),
+	x_in_L(HL,TP,R).
