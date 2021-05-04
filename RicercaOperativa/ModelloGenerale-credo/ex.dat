@@ -1,0 +1,21 @@
+set VariabiliMinZero 	:= ;
+set VariabiliMaggZero 	:= x1, x2;
+set Variabili 			:= x1, x2;
+set VincoliMinZero 		:= r3;
+set VincoliMagZero 		:= r1, r2;
+set Vincoli 			:= r1, r2, r3;
+
+param b :=
+r1  2
+r2  1
+r3  3;
+
+param c :=
+x1   1
+x2  -2;
+
+param a :
+	x1  x2  =
+r1   1   1
+r2  -1   1
+r3   0   1;
