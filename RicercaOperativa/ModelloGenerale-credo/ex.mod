@@ -1,8 +1,9 @@
 set VariabiliMinZero;
 set VariabiliMaggZero;
 set Variabili;
-set VincoliMinZero;
-set VincoliMagZero;
+set VincoliMinori;
+set VincoliMaggiori;
+set VincoliUguali;
 set Vincoli;
 
 param b{Vincoli};
@@ -13,7 +14,8 @@ var x{Variabili};
 
 minimize z: sum{j in Variabili} c[j]*x[j];
 
-s.t. v0 {i in VincoliMinZero}: sum{j in Variabili} a[i,j]*x[j] <= b[i];
-s.t. v1 {i in VincoliMagZero}: sum{j in Variabili} a[i,j]*x[j] >= b[i];
-s.t. v2 {j in VariabiliMinZero}: x[j] <= 0;
-s.t. v3 {j in VariabiliMaggZero}: x[j] >= 0;
+s.t. v0 {i in VincoliMinori}: sum{j in Variabili} a[i,j]*x[j] <= b[i];
+s.t. v1 {i in VincoliMaggiori}: sum{j in Variabili} a[i,j]*x[j] >= b[i];
+s.t. v2 {i in VincoliUguali}: sum{j in Variabili} a[i,j]*x[j] = b[i];
+s.t. v3 {j in VariabiliMinZero}: x[j] <= 0;
+s.t. v4 {j in VariabiliMaggZero}: x[j] >= 0;
