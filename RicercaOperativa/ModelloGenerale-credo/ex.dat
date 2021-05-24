@@ -1,24 +1,24 @@
-set VariabiliMinZero 	:= x2;
-set VariabiliMaggZero 	:= x1;
-set Variabili 			:= x1, x2;
+set VariabiliMinZero 	:= ;
+set VariabiliMaggZero 	:= x2;
+set Variabili 			:= x1,x2;
 set VincoliMinori 		:= r1;
 set VincoliMaggiori		:= r2;
 set VincoliUguali		:= ;
-set Vincoli 			:= r1, r2;
+set Vincoli 			:= r1,r2;
 
 param b :=
-r1  6
+r1  4
 r2  1
 ;
 
 param c :=
-x1   1
-x2  -1
+x1  -6
+x2   1
 
 ;
 
 param a :
 	x1  x2   =
-r1   2  -1    
-r2   1   1  
+r1   1   1    
+r2  -3   1  
 ;
