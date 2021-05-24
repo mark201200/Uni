@@ -39,8 +39,9 @@ def my_iterate(func, n):
 # Test
 func = lambda x: x ** 2 + 1
 
-print("Esercizio iterate: ")
+
 print(my_iterate(func, 5))
+
 
 # -------------------------------------------------------------------------------------------------------
 
@@ -53,3 +54,17 @@ print(my_iterate(func, 5))
 
 # -----------------------------------------------------------------------
 
+# Si scriva utilizzando la notazione lambda in python la funzione
+# somma(ListaDiCoppie)che prenda in ingresso una lista di coppie di numeri (a,b)
+# e restituisca una lista in cui ogni elemento sia a+b .
+
+def somma(ListaDiCoppie):
+	out = []
+	for lista in ListaDiCoppie:
+		out.append((lambda x: lambda y: x + y)(lista[0])(lista[1]))
+	return out
+
+print("Esercizio somma: ")
+print(somma([[1, 10], [2, 2], [1, 2]]))
+
+# --------------------------------------------------------------------------------
