@@ -1,12 +1,15 @@
 import copy
 from fractions import Fraction
 
+
 def ottimo(t_in):
     tableau = copy.deepcopy(t_in)
 
     # se è ottimo, stampa
+    # print(tableau[0][1:].index(min(num for num in tableau[0][1:] if num < 0)))
     try:
-        pivotCol = tableau[0].index(min(num for num in tableau[0][1:] if num < 0))
+        # pivotCol = tableau[0].index(min(num for num in tableau[0][1:] if num < 0))
+        pivotCol = tableau[0][1:].index(min(num for num in tableau[0][1:] if num < 0)) + 1
     except:
         print("Tableau ottimo trovato.")
         for riga in tableau:
@@ -34,6 +37,8 @@ def ottimo(t_in):
     pivotRiga = resDivisioni.index(min(num for num in resDivisioni if num is not None)) + 1
 
     div = tableau[pivotRiga][pivotCol]
+    print("Pivot su riga " + str(pivotRiga + 1) + " e colonna " + str(pivotCol + 1) + ". (Valore elemento: " + str(
+        div) + " )")
     for col in range(0, colonne):
         # print(str(tableau[pivotRiga][col]) + "= (" + str(tableau[pivotRiga][col]) + "/ " + str(tableau[pivotRiga][pivotCol]) + ") ")
         tableau[pivotRiga][col] = (tableau[pivotRiga][col] / div)
@@ -47,6 +52,7 @@ def ottimo(t_in):
 
     ottimo(tableau)
 
+
 # -------------------------------Input del tableau---------------------------------------------------
 
 righe = int(input("Inserisci il numero di righe (constraint+f.o.)"))
@@ -57,6 +63,7 @@ tableau = [[0 for i in range(0, colonne)] for j in range(0, righe)]
 for riga in range(0, righe):
     for col in range(0, colonne):
         tableau[riga][col] = Fraction(input("Inserisci riga " + str(riga + 1) + ", colonna " + str(col + 1)))
+print()
 
 # ---------------------------------------------------------------------------------------------------
 
