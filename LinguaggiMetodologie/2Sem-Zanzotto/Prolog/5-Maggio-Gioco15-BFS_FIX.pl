@@ -1,3 +1,5 @@
+
+:- dynamic estendi2/2.
 %Empty nella riga 3
 edge( grid([A,B,C] ,[D,E,F], [G,empty,H]), grid([A,B,C] ,[D,E,F], [G,H, empty])).
 edge( grid([A,B,C] ,[D,E,F], [G,empty,H]), grid([A,B,C] ,[D,empty,F], [G,E,H])).
@@ -49,4 +51,24 @@ bfs([Path|Paths],Sol):-
     bfs(NewPaths,Sol).
 
 estendi([Edge|Path],Ext):-
-    findall([NEdge,Edge|Path],( edge(Edge,NEdge) , \+ member(NEdge, [Edge|Path]) ), Ext).
+    estendi2(Edge,Steps),
+    asserta(estendi2(Edge,Steps)),
+    weirdConc(Steps,[Edge|Path],Ext).
+    %findall([NEdge,Edge|Path],( edge(Edge,NEdge) , \+ member(NEdge, [Edge|Path]) ), Ext).
+
+
+estendi2(Edge,Ext):-
+    findall(NEdge,( edge(Edge,NEdge) ), Ext).
+
+
+
+weirdConc([],_,[]).
+weirdConc([H|T],L,[[H|L]|R]):-
+    weirdConc(T,L,R).
+
+
+
+
+
+
+

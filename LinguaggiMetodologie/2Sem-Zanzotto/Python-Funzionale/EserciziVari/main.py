@@ -39,7 +39,7 @@ def my_iterate(func, n):
 # Test
 func = lambda x: x ** 2 + 1
 
-
+print("Esercizio iteratev1:")
 print(my_iterate(func, 5))
 
 
@@ -49,8 +49,22 @@ print(my_iterate(func, 5))
 # che prenda come input un numero arbitrario di parametri (numeri reali)
 # e che ritorni come output la funzione polinomiale
 # che ha come coefficienti i parametri dati.
+def compose(f, g):
+	return lambda x: f(x) + g(x)
 
-# TODO
+
+def polynomial(*coeff):
+	out = lambda x: 0
+	i = 0
+	for c in coeff:
+		tfunz = lambda x: c * (x ** i)
+		out = lambda x: out(x) + tfunz(x)
+		i += 1
+	return out
+
+
+# print(polynomial(5, 4, 3)(1))
+
 
 # -----------------------------------------------------------------------
 
@@ -64,7 +78,60 @@ def somma(ListaDiCoppie):
 		out.append((lambda x: lambda y: x + y)(lista[0])(lista[1]))
 	return out
 
+
 print("Esercizio somma: ")
 print(somma([[1, 10], [2, 2], [1, 2]]))
+
+
+# --------------------------------------------------------------------------------
+
+# iterate
+
+def myIterate(f, n):
+	out = [f(0)]
+	for i in range(0, n):
+		out.append(f(out[i]))
+	return out
+
+
+func = lambda x: x ** 2 + 1
+
+print("Esercizio iteratev2:")
+print(myIterate(func, 4))
+
+
+# anyall
+
+def myany(lista):
+	for bool in lista:
+		if (not (lambda b: b == True)):
+			return False
+
+	return True
+
+
+print(myany([True, False]))
+
+
+# --------------------------------------------------------------------------------
+
+# ordina lista triple
+def ordina(listaTriple, *funcs):
+	out = []
+	for f in funcs:
+		out.append(sorted(listaTriple, key=f))
+	return out
+
+
+print(ordina([(1, 2, 3), (4, 5, 1), (2, 3, 2)], lambda x: x[2], lambda x: x[0] + x[2]))
+
+
+# ordina lista triple con funzione fissata
+
+def ordina2(listaTriple):
+	return sorted(listaTriple, key=lambda x: (x[0] * x[1]) + x[2])
+
+
+print(ordina2([(1, 2, 3), (4, 5, 1), (2, 3, 2)]))
 
 # --------------------------------------------------------------------------------
