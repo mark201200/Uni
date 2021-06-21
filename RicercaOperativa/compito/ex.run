@@ -1,0 +1,16 @@
+#model .\ex.mod;
+#data .\ex.dat;
+
+for {i in -10..10} {	# ho messo un range random
+	
+	solve;				# risolvo il problema
+	
+	let alpha := i;		# aumento il valore di alpha
+	
+						# stampo le varie variabili
+	display alpha;
+	display z;
+	display x;
+	display v0;
+	display v1;
+};
