@@ -1,0 +1,4 @@
+/mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug/CMakeFiles/worker.dir
+/mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug/CMakeFiles/main.dir

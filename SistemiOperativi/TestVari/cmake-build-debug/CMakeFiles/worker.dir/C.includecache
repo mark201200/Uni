@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/worker.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+fcntl.h
+-
+time.h
+-
+
