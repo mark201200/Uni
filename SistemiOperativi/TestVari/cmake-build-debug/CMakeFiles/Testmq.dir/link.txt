@@ -1,1 +1,0 @@
-/usr/bin/gcc  -g   CMakeFiles/Testmq.dir/main.c.o CMakeFiles/Testmq.dir/worker.c.o  -o Testmq 

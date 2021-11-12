@@ -1,4 +1,0 @@
-C:\Windows\system32\wsl.exe --distribution Debian --exec /bin/sh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -G 'CodeBlocks - Unix Makefiles' /mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/Utente/Documents/Uni/SistemiOperativi/Testmq/cmake-build-debug
