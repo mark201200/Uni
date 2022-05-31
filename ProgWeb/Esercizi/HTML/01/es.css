@@ -1,0 +1,15 @@
+p{
+    text-indent: 3em;
+}
+
+#intro{
+    width: 50%;
+}
+
+#outline{
+    padding: 1em;
+    background-color: plum;
+    width: 50%;
+    border-style: solid;
+    float: right;
+}

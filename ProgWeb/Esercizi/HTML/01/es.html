@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="es.css">
+</head>
+
+<body>
+  <h3><b>Chapter 2</b> Html Basics</h3>
+
+
+  <h2>Introduction</h2>
+  <div id="outline">
+    <center><h2>Chapter Outline</h2></center>
+    <strong>2.1&nbsp Basic HTML</strong> <br>
+    2.1.1&nbsp History <br>
+    2.1.2&nbsp Page Structure<br>
+    2.1.3&nbsp Block Elements<br>
+    2.1.4&nbsp Inline elements<br>
+
+    <strong>2.2&nbsp More HTML Elements</strong><br>
+    2.2.1&nbsp Lists<br>
+    2.2.2&nbsp Tables<br>
+    2.2.3&nbsp Quotations<br>
+    2.2.4&nbsp Pre-Formatted Text<br>
+    2.2.5&nbsp A Few Miscellaneous Elements<br>
+    2.2.6&nbsp Audio and Video<br>
+
+    <strong>2.3 &nbsp;Web Standards</strong><br>
+    2.3.1&nbsp Why Follow Web Standards? <br>
+    2.3.2&nbsp The W3C HTML Validator <br>
+    2.3.3&nbsp WebPage Metadata <br>
+ </div>
+  <p id="intro">We'll begin our study of web programming by learning the core language for writing web pages:
+    Hypertext Markup Language (HTML). HTML describes the contents of your page, such as headings, paragraphs, images,
+    and lists.
+    The version of HTML we'll learn is the latest and most standard, called HTML5. The pages you'll write will work in
+    any modern browser.
+    This chapter doesn't attempt to provide a complete list of HTML tags and attributes. Certain aspects of the
+    language, such as forms and tables, are left for later chapters that focus on those elements.</p>
+
+  
+
+  <h2>2.1 Basic HTML</h2>
+  <p>In this section we'll discuss the basics of HTML and web pages, as well as a brief history of the language and how
+    it came to be the way it is today. In following sections we'll dive into the details of HTML syntax for creating
+    complex web pages.</p>
+
+  <h2>2.1.1 History</h2>
+  <p>
+    Since its creation in 1991 by Tim Berners-Lee, one of the founding fathers of the Internet, HTML has been the
+    dominant language for creating web pages. HTML is a language consisting of text content surrounded by markings that
+    specify the meaning of the content. As with many languages, HTML has gone through different versions and
+    standardization processes over the years:
+  <ul>
+    <li>1993: Initial official proposed description of HTML submitted to the IETF standards group.</li>
+    <li>1995: HTML 2 becomes an official standard language by a publication called RFC 1866.</li>
+    <li>1996-97: HTML 3.2 standardizes various features including forms, tables, image maps, and internationalization.
+    </li>
+    <li>1997: HTML 4 is proposed by W3C standards body, adding style sheets, scripting, frames, embedding objects,
+      internationalization, and accessibility for disabilities.</li>
+    <li>HTML 4.01, the last major version of the language, is published in 1999 by W3C. A majority of the pages on the
+      web today still use HTML 4.01 as their stated language.</li>
+    <li>2000-01: XHTML, a more standardized offshoot of HTML based on a language named XML, is proposed by W3C.</li>
+    <li>2011-12: HTML5, an ambitious new version of the web language intended to address the evolution of the web into a
+      platform for applications and multimedia, is developed by W3C.</li>
+  </ul>
+  <p>The language has several major goals that are reflected in the evolution made to it over the years. Each new
+    version has endeavored to: add new features; improve interoperability, make HTML compatible with all major browsers,
+    platforms, and devices; and be accessible to all kinds of users, including those with disabilities affecting sight
+    and hearing.
+    In these chapters we will focus on HTML5, a more recently created dialect of HTML. HTML5 is a more modern and
+    stricter language than older versions of HTML, and its syntax is more regular and standardized. HTML5 has a more
+    clearly refined set of goals than past versions of HTML. While older HTML was a mixed language used to describe a
+    document's content, appearance, and behavior, properly written HTML5 chooses to focus solely on describing the
+    document's content and structure. The tasks of describing exactly how the document should look and how it should
+    behave are handled by other languages that interact with HTML.
+    At the time of this writing, not all web browsers support every new feature of HTML5 properly. For this reason,
+    throughout the textbook when we show a feature that is new to HTML5, we will place the official HTML5 "shield" logo
+    next to that feature: This way you will be aware that the feature may not work properly for users with older
+    browsers. Every web developer must face the difficult decision between utilizing the newest features and reaching
+    the widest possible audience.</p>
+
+  <p>A well-written web page has the following division of responsibilities:</p>
+  <ul>
+    <li>HTML describes the content of the document.</li>
+    <li>Style Sheets (written in a language named CSS) describe the appearance of the document.</li>
+    <li>Scripts (written in languages such as JavaScript) describe the behavior of the document.</li>
+  </ul>
+
+  <p>
+    We will learn the HTML syntax in detail throughout this chapter and later chapters. Example 2.1 shows an initial
+    example of a complete HTML document. Figure 2.1 shows the output when you save the above code into a file called
+    wonderfulworld.html and open it in the Firefox browser.
+    In general it does not matter what name you give to your HTML file, but one particular file name is worth mentioning.
+    Most web servers consider the filename index.html (and similar names such as index.php, index.jsp, etc. ) to represent
+    the main page for a particular web site. So if you omit the file name from a URL, index.html is assumed to be the
+    filename. This is useful because, for example, you can tell people your web site's URL is http://www.example.com/, and
+    when they visit that URL, they'll actually be shown the contents of http://www.example.com/index.html.
+  </p>
+  
+  
+  <pre><code>&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+       &lt;head&gt;
+         &lt;title&gt;What a Wonderful World&lt;/title&gt; 
+       &lt;/head&gt;
+    
+       &lt;body&gt;
+         &lt;hl&gt;My first web page&lt;/hl&gt;
+    
+         &lt;p&gt;
+           A friend told me once that he thought the
+           in URLs stood for what a wonderful world
+            (I think it does!).
+         &lt;/p&gt;
+       &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+  <figcaption><strong> Example 2.1 Basic web page wonderfulworld.html</strong></figcaption>
+
+  <img src="fig2.1.png" alt="figure">
+  <figcaption><strong> Figure 2.1 Basic web page appearance in Firefox</strong></figcaption>
+
+
+
+
+
+</body>
