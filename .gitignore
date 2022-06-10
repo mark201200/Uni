@@ -1,1 +1,5 @@
-/Fondamenti/venv/
+cmake-build-debug/
+__pycache__/
+.ipynb_checkpoints/
+*.pdf
+.vscode/

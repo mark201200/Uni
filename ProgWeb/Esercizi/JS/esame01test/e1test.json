@@ -1,0 +1,6 @@
+[
+    {"desc": "Home Page", "link": "http://www.example.com/"},
+    {"desc": "Informazioni", "link": "http://www.example.com/info"},
+    {"desc": "Prodotti", "link": "http://www.example.com/prodotti"},
+    {"desc": "Contatti", "link": "http://www.example.com/contatti"}
+]
