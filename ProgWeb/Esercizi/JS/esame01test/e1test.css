@@ -17,7 +17,9 @@ body {
 }
 
 #overlay {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: #333;
     opacity: 0.8;
     width: 100%;

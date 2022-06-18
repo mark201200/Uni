@@ -1,19 +1,23 @@
+/* outdated, uso fetch
 function get(url) {
     let req = new XMLHttpRequest;
     req.open("GET", url, false);
     req.send(null);
     return req.responseText;
 }
+*/
 
-document.onreadystatechange = function () {
+
+document.onreadystatechange = async function () {
     if (document.readyState == 'complete') {
 
         let btn = document.getElementById("btn");
         btn.onclick = function () {
             document.getElementById("overlay").style.display = 'none';
         }
-
-        let links = JSON.parse(get("e1test.json"));
+        
+        let links = fetch("e1test.json");
+        links = await (await links).json();
         let menu = document.getElementById("menu-entry");
         for (var link of links) {
             let entry = document.createElement("li");
