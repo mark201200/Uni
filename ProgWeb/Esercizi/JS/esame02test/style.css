@@ -1,0 +1,16 @@
+body{
+    border: 1px blue solid;
+    width: 400px;
+    margin: auto;
+    padding: 1em;
+}
+
+footer{
+    padding-top: 1em;
+}
+
+@media (min-width: 800px) {
+    body{
+        width: 700px;
+    }
+}

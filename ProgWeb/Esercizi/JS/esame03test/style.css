@@ -1,0 +1,50 @@
+body {
+    width: 900px;
+    margin: auto;
+}
+
+ul {
+    display: table;
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    border: 1px solid gray;
+    padding: 0.5em;
+    display: table-cell;
+}
+
+footer {
+    border: 1px solid gray;
+    padding: 0.5em;
+}
+
+section {
+    width: 100%;
+}
+
+#content {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    body {
+        width: 400px;
+    }
+
+    li {
+        display: block
+    }
+
+    #content{
+        flex-direction: column;
+    }
+
+}

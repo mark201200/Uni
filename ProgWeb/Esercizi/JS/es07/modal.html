@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+    <button id="showbtn">Show Modal</button>
+    <h1>Modal test</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis alias ut similique natus quis, numquam impedit molestias in beatae molestiae cum soluta atque nihil doloremque voluptatem vero perferendis praesentium earum?</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur quo ducimus quos illum molestias temporibus facilis sint voluptatibus quasi dolore sapiente excepturi, perspiciatis, aliquid suscipit unde quae facere aut? Nulla!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas minus odit asperiores est officia, ut magni? Earum quis rerum adipisci iusto at sint soluta harum consequatur cupiditate laborum? Sunt, doloribus!</p>
+
+    <div id="modal" hidden>
+        <h2>Un modale!!</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus saepe quibusdam alias porro, iusto totam quia libero non laborum, ratione impedit explicabo id eius corporis perspiciatis facere pariatur, velit corrupti.</p>
+        <h1 id="closebtn" style="position: absolute; top:0; left: 90%; ">x</h1>
+    </div>
+
+    <div id="overlay" hidden></div>
+</body>
+<script>
+    let showbtn = document.getElementById("showbtn");
+    showbtn.addEventListener("click", function() {
+        document.getElementById("modal").removeAttribute("hidden");
+        document.getElementById("overlay").removeAttribute("hidden");
+    });
+
+    let closebtn = document.getElementById("closebtn")
+    closebtn.addEventListener("click", function() {
+        document.getElementById("modal").setAttribute("hidden","");
+        document.getElementById("overlay").setAttribute("hidden","");
+    });
+</script>
+</html>

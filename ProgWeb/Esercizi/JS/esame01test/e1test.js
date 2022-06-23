@@ -12,9 +12,11 @@ document.onreadystatechange = async function () {
     if (document.readyState == 'complete') {
 
         let btn = document.getElementById("btn");
-        btn.onclick = function () {
-            document.getElementById("overlay").style.display = 'none';
-        }
+        let overlay = document.getElementById("overlay");
+        
+        btn.addEventListener("click", function (){
+            overlay.classList.add("hidden");
+        })
         
         let links = fetch("e1test.json");
         links = await (await links).json();
@@ -25,14 +27,11 @@ document.onreadystatechange = async function () {
             menu.appendChild(entry);
         }
 
-        if (window.innerWidth < 600) {
-            let btn = document.getElementById("menu-txt");
-            let menu = document.getElementById("menu-entry");
-            btn.onclick = function () {
-                if (menu.style.display != 'none')
-                    menu.style.display = 'none';
-                else menu.style.display = 'block';
-            }
-        }
+        
+        let textbtn = document.getElementById("menu-txt");
+        textbtn.addEventListener("click", function () {
+            if (window.innerWidth < 600)
+                menu.classList.toggle("hidden");
+        })
     }
 }
