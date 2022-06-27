@@ -19,13 +19,13 @@ window.onload = function () {
 
     fetch("data.json")
         .then(response => {
-            response.json()
-                .then(data => {
-                    for (element of data) {
-                        let section = document.createElement("section");
-                        section.innerHTML = "<h2>" + element.titolo + "</h2> " + element.contenuto;
-                        contentdiv.appendChild(section);
-                    }
-                })
+            return response.json()
+        })
+        .then(data => {
+            for (element of data) {
+                let section = document.createElement("section");
+                section.innerHTML = "<h2>" + element.titolo + "</h2> " + element.contenuto;
+                contentdiv.appendChild(section);
+            }
         })
 }

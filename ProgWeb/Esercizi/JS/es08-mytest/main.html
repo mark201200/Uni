@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .image {
+            position: absolute;
+            top: 300px;
+            left: 300px;
+            width: 300px;
+        }
+    </style>
+
+    <header>
+        <h1>GitHub PFP Show</h1>
+    </header>
+    <section>
+        <form id="myform">
+            <input type="text" name="" id="uname">
+            <input type="submit" value="Search">
+        </form>
+    </section>
+
+    <script>
+        const pfpShow = async function (username) {
+            res = await fetch(`https://api.github.com/users/${username}`);
+            usrJson = await res.json();
+            let img = document.createElement("img")
+            img.src = usrJson.avatar_url;
+            img.addEventListener("load", () => {
+                setTimeout(() => {
+                    img.remove();
+                }, 5000)
+            })
+            img.classList.add("image");
+            document.body.append(img);
+        }
+
+        window.onload = function () {
+            form = document.getElementById("myform");
+            uname = document.getElementById("uname");
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                pfpShow(uname.value);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

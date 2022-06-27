@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            width: 900px;
+        }
+
+        header h1,
+        footer,
+        li {
+            border: 1px solid gray;
+            padding: 0.5em;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        section {
+            padding: 0.5em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #art {
+            display: flex;
+        }
+
+        @media (max-width: 1000px) {
+            body {
+                width: 400px;
+            }
+
+            ul {
+                flex-direction: column;
+            }
+
+            #art {
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Example.com</h1>
+
+        <p id="menutxt">MENU</p>
+
+        <ul id="menu">
+            <li><a href="">Home</a> </li>
+            <li><a href="">Info</a></li>
+            <li><a href="">Prod</a></li>
+            <li><a href="">Contatti</a></li>
+        </ul>
+    </header>
+
+    <h2 id="art-txt">Articoli</h2>
+
+    <div id="art">
+
+    </div>
+
+    <footer>
+        <a href="">Copyright</a>
+    </footer>
+
+    <script>
+        let json_load = async function (url) {
+            let res = await fetch(url);
+            let res_json = await res.json();
+            let art_div = document.querySelector("#art");
+            for (art of res_json) {
+                let sect = document.createElement("section");
+                sect.innerHTML = `<h3>${art.titolo}</h3> <p>${art.contenuto}</p>`;
+                art_div.appendChild(sect);
+            }
+        }
+
+        let menuClick = function () {
+            if (window.innerWidth < 1000) {
+                let menutxts = document.querySelector("#menutxt");
+                let colors = ["red", "gray", "black", "blue", "green"];
+                let i = Math.floor(Math.random() * colors.length);
+                document.querySelector("#menu").classList.toggle("hidden");
+                menutxts.style.color = colors[i];
+            }
+        }
+
+        let articleShuffler = function () {
+            let i = 0;
+            let arr = [1, 2, 3];
+            arr.sort(() => Math.random() - 0.5);
+            let sections = document.querySelectorAll("div section");
+            for (section of sections) {
+                section.style.order = arr[i++];
+            }
+        }
+
+        window.onload = function () {
+            json_load("data.json");
+            document.querySelector("#menutxt").addEventListener("click", () => menuClick());
+            document.querySelector("#art-txt").addEventListener("click",() => articleShuffler());
+        }
+
+    </script>
+
+</body>
+
+</html>

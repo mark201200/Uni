@@ -20,17 +20,14 @@
     <footer><a href="">La tua lista della spesa</a></footer>
 
     <script>
-        function jsonLoader() {
-            fetch("http://127.0.0.1:8080/data")
-                .then(response => {
-                    let content = document.getElementById("content");
-                    let pre = document.createElement("pre");
-                    pre.setAttribute("id", "jsonpre");
-                    response.text().then(function (text) {
-                        pre.innerHTML = text;
-                    });
-                    content.appendChild(pre);
-                })
+        async function jsonLoader() {
+            var content = document.getElementById("content");
+            var pre = document.createElement("pre");
+            pre.setAttribute("id", "jsonpre");
+            let response = await fetch("http://127.0.0.1:8080/data");
+            let text = await response.text();
+            pre.innerHTML = text;
+            content.appendChild(pre);
         }
 
         function converti() {
