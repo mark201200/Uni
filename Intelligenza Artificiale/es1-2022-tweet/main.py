@@ -64,7 +64,7 @@ def calcScores(tweet):                                   #la funzione prende com
 
     return [score_meloni,score_renzi,score_totti]
 
-def updateScore():
+def updateScore():       #diviso due più uno non va bene, dà un target troppo alto. forse è meglio la media o la mediana?
     global targetScore_meloni
     targetScore_meloni = (sum(parole_meloni.values()) / 2) - 1
     global targetScore_renzi
