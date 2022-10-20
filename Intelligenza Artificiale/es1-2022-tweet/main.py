@@ -1,3 +1,6 @@
+import pandas as pd
+from statistics import mean
+
 parole_meloni = {
     "governo": 149,
     "meloni": 77,
@@ -13,14 +16,15 @@ parole_meloni = {
 }
 
 parole_renzi = {
-    "partito": 27,
-    "matteo": 23,
-    "renzi": 32,
+    "partito": 17,
+    "matteo": 43,
+    "renzi": 72,
     "schlein": 16,
     "sinistra": 11,
     "calenda": 8,
-    "pd": 7,
-    "viva": 6
+    "pd": 57,
+    "viva": 26,
+    "italia viva": 26
 }
 
 parole_totti = {
@@ -36,42 +40,51 @@ parole_totti = {
 }
 
 
-def calcScores(tweet):                                   #la funzione prende come argomento il testo di un tweet e ritorna i tre punteggi in una lista
+def calcScores(tweet):  # la funzione prende come argomento il testo di un tweet e ritorna i tre punteggi in una lista
 
-    tweet= tweet.lower()
+    tweet = tweet.lower()
 
     score_meloni = 0
-    for word in parole_meloni.keys():            #per ogni parola delle parole della meloni
+    for word in parole_meloni.keys():  # per ogni parola delle parole della meloni
         tweet.find(word)
-        if tweet.find(word) != -1:                       #se trovo la parola nel tweet
-            #dataset.parole_meloni[word] += 1            #aumento il peso della parola che ho trovato (commentato perché è da implementare bene)
-            score_meloni += parole_meloni[word]  #aggiungo allo score il peso della parola
+        if tweet.find(word) != -1:  # se trovo la parola nel tweet
+            # dataset.parole_meloni[word] += 1           #aumento il peso della parola che ho trovato (commentato perché è da implementare bene)
+            score_meloni += parole_meloni[word]  # aggiungo allo score il peso della parola
 
     score_renzi = 0
     for word in parole_renzi.keys():
         tweet.find(word)
         if tweet.find(word) != -1:
-            #dataset.parole_renzi[word] += 1
+            # dataset.parole_renzi[word] += 1
             score_renzi += parole_renzi[word]
 
     score_totti = 0
     for word in parole_totti.keys():
         tweet.find(word)
         if tweet.find(word) != -1:
-            #dataset.parole_totti[word] += 1
+            # dataset.parole_totti[word] += 1
             score_totti += parole_totti[word]
 
+    return [score_meloni, score_renzi, score_totti]
 
-    return [score_meloni,score_renzi,score_totti]
-
-def updateScore():       #diviso due più uno non va bene, dà un target troppo alto. forse è meglio la media o la mediana?
-    global targetScore_meloni
-    targetScore_meloni = (sum(parole_meloni.values()) / 2) - 1
-    global targetScore_renzi
-    targetScore_renzi = (sum(parole_renzi.values()) / 2) - 1
-    global targetScore_totti
-    targetScore_totti = (sum(parole_totti.values()) / 2) - 1
 
 if __name__ == '__main__':
-    updateScore()
-    print(calcScores("Giorgia a quando una visita in Uganda? renzi totti"))
+    ##Testing
+    scores = []
+    # read excel file
+    #df = pd.read_excel('dataset/renzi.xlsx')
+    df = pd.read_excel('test_data/meloni_test.xlsx')
+    tweets = df.drop(['topic', 'hashtags'], 1).values.tolist()
+    for tweet in tweets:
+        scores.append(calcScores(tweet[1]))
+
+    meloniscores = []
+    renziscores = []
+    tottiscores = []
+    for score in scores:
+        meloniscores.append(score[0])
+        renziscores.append(score[1])
+        tottiscores.append(score[2])
+
+    #print([mean(meloniscores),mean(renziscores),mean(tottiscores)])
+    print(scores)
