@@ -1,5 +1,5 @@
 ## Esercizio Robot - Altomare - Santuci
-
+import copy
 import random
 
 
@@ -15,6 +15,8 @@ class Object:  # La classe oggetto, serve per rappresentare l'energia e la rocci
 class Environment:  # La classe ambiente, contiene tutte le variabili e le funzioni di base
 
     def __init__(self, width, height):
+        self.totalRockDamage = 0
+        self.noprint = 0
         self.round = 0
         self.width = width
         self.height = height
@@ -36,6 +38,7 @@ class Environment:  # La classe ambiente, contiene tutte le variabili e le funzi
             obj.x = x
             obj.y = self.height - 1
             obj.damage = random.choice([1, 2, 5])
+            self.totalRockDamage += obj.damage
 
     def fall(self):  # Funzione per far cadere la roccia e l'energia
         if self.energy.y > 0:
@@ -55,23 +58,28 @@ class Environment:  # La classe ambiente, contiene tutte le variabili e le funzi
     def floorDamage(self):  # Funzione che calcola il danno al pavimento
         if self.agent.x != self.rock.x:
             self.floor[self.rock.x] -= self.rock.damage
-            print("Floor tile ", self.rock.x, " damaged by ", self.rock.damage, " units")
+            if self.noprint == 0:
+                print("Floor tile ", self.rock.x, " damaged by ", self.rock.damage, " units")
         else:
-            print("Agent shielded the floor!")
+            if self.noprint == 0:
+                print("Agent shielded the floor!")
 
     def energyCheck(self):  # Funzione che controlla se l'energia è stata raccolta
         if self.agent.x == self.energy.x and self.agent.y == self.energy.y:
             self.agent.restoreEnergy()
-            print("Agent energy restored!")
+            if self.noprint == 0:
+                print("Agent energy restored!")
 
     def isDone(self):  # Funzione che controlla se ho perso
         for floorEnergy in self.floor:
             if floorEnergy <= 0:
-                print("Floor compromised! Game over")
+                if self.noprint == 0:
+                    print("Floor compromised! Game over")
                 return True
 
     def print(self):  # Funzione per stampare l'ambiente
         print()
+        print("Total rock damage: ", self.totalRockDamage)
         print("Round: ", self.round)
         print("Agent Location: ", self.agent.x)
         print("Agent Energy: ", self.agent.energy)
@@ -89,12 +97,19 @@ class Environment:  # La classe ambiente, contiene tutte le variabili e le funzi
                 else:
                     print('. ', end='')
             print()
+
+        for tile in self.floor:
+            print(tile, end=' ')
         print()
 
-    def step(self):  # Funzione che esegue un passo
+    def step(self, forced='notSp'):  # Funzione che esegue un passo, forced serve per la simulazione
         self.round += 1
-        action = self.agent.program(self.percept())
-        self.execute(action)
+        if forced == 'notSp':
+            action = self.agent.program(self.percept())
+            self.execute(action)
+        else:
+            self.noprint = 1
+            self.execute(forced)
         self.fall()
         if self.isDone():
             return False
@@ -121,22 +136,51 @@ class Agent:
         self.y = 0
         self.energy = 20
 
+    def utilityFn(self, environment=None):
+        if environment is None:
+            environment = self.env
+        rock, energy = environment.percept()
+        agent = environment.agent
+        #utility = (((rock.damage / 5) / ((agent.getDistanceX(rock) + agent.getDistanceY(rock)) + 1)) * 1 ) + ((
+        #        abs((agent.energy / 20) - 1) / ((agent.getDistanceX(energy) + agent.getDistanceY(energy)) + 1)) * 1)
+
+        utility = (((rock.damage / 5) / ((agent.getDistanceX(rock) / (agent.getDistanceY(rock) + 1))+1)) + ((
+                abs((agent.energy / 20) - 1) / ((agent.getDistanceX(energy) / (agent.getDistanceY(energy) + 1))+1))))
+
+        return utility
+
+    def simulateMovementUtil(self, action):  # Simulazione di un movimento, e ritorno della funzione utilità.
+        simulatedEnv = copy.deepcopy(self.env)
+        simulatedEnv.step(action)
+        return self.utilityFn(simulatedEnv)
+
     def program(self, percept):  # Funzione che contiene il programma dell'agente
         rock, energy = percept
-        if rock.y == -1:  # Se la roccia è caduta allora non muoverti, serve a prevenire un bug
+
+        if rock.y <= 0 and self.x == rock.x:
+            print("Rock destroyed!")
             return 'none'
-        if self.energy <= 10 and rock.damage == 1 and self.reachable(energy):
-            print("Prioritizing energy. Moving", self.direction(energy), "towards energy")
-            return self.direction(energy)
-        if self.reachable(rock):
-            print("Rock is reachable. Moving", self.direction(rock))
-            return self.direction(rock)
-        elif self.reachable(energy):
-            print("Rock is NOT reachable. Moving", self.direction(energy), "to get energy")
-            return self.direction(energy)
+
+        if energy.y <= 0 and self.x == energy.x:
+            print("Energy collected!")
+            return 'none'
+
+        scoreRight = self.simulateMovementUtil('right')
+        scoreLeft = self.simulateMovementUtil('left')
+        scoreNone = self.simulateMovementUtil('none')
+
+        print("Score movimento sinistra: ", scoreLeft, "Score movimento destra: ",
+              scoreRight, "Score no movimento: ", scoreNone)
+
+        if scoreRight > scoreLeft and scoreRight > scoreNone:
+            print("Spostamento a destra")
+            return 'right'
+        elif scoreLeft > scoreRight and scoreLeft > scoreNone:
+            print("Spostamento a sinistra")
+            return 'left'
         else:
-            print("Nothing is reachable. Moving towards center")
-            return self.center()
+            print("Nessun spostamento")
+            return 'none'
 
     def center(self):
         if self.x < 4:
