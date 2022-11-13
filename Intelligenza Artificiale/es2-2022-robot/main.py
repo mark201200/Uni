@@ -1,4 +1,4 @@
-## Esercizio Robot - Altomare - Santuci
+## Esercizio Robot - Altomare - Santucci
 import copy
 import random
 
@@ -139,17 +139,14 @@ class Agent:
     def utilityFn(self, environment=None):
         if environment is None:
             environment = self.env
+
         rock, energy = environment.percept()
-        agent = environment.agent
-        #utility = (((rock.damage / 5) / ((agent.getDistanceX(rock) + agent.getDistanceY(rock)) + 1)) * 1 ) + ((
-        #        abs((agent.energy / 20) - 1) / ((agent.getDistanceX(energy) + agent.getDistanceY(energy)) + 1)) * 1)
-
-        utility = (((rock.damage / 5) / ((agent.getDistanceX(rock) / (agent.getDistanceY(rock) + 1))+1)) + ((
-                abs((agent.energy / 20) - 1) / ((agent.getDistanceX(energy) / (agent.getDistanceY(energy) + 1))+1))))
-
+        envAgent = environment.agent
+        utility = (((rock.damage / 5) / ((envAgent.getDistanceX(rock) / (envAgent.getDistanceY(rock) + 1))+1)) + ((
+                abs((envAgent.energy / 20) - 1) / ((envAgent.getDistanceX(energy) / (envAgent.getDistanceY(energy) + 1))+1))))
         return utility
 
-    def simulateMovementUtil(self, action):  # Simulazione di un movimento, e ritorno della funzione utilità.
+    def simulatemovement(self, action):  # Simulazione di un movimento, e ritorno della funzione utilità.
         simulatedEnv = copy.deepcopy(self.env)
         simulatedEnv.step(action)
         return self.utilityFn(simulatedEnv)
@@ -165,21 +162,21 @@ class Agent:
             print("Energy collected!")
             return 'none'
 
-        scoreRight = self.simulateMovementUtil('right')
-        scoreLeft = self.simulateMovementUtil('left')
-        scoreNone = self.simulateMovementUtil('none')
+        scoreRight = self.simulatemovement('right')
+        scoreLeft = self.simulatemovement('left')
+        scoreNone = self.simulatemovement('none')
 
-        print("Score movimento sinistra: ", scoreLeft, "Score movimento destra: ",
-              scoreRight, "Score no movimento: ", scoreNone)
+        print("Left movement score: ", scoreLeft, "\nRight movement score",
+              scoreRight, "\nNo movement score: ", scoreNone)
 
         if scoreRight > scoreLeft and scoreRight > scoreNone:
-            print("Spostamento a destra")
+            print("Moving right")
             return 'right'
         elif scoreLeft > scoreRight and scoreLeft > scoreNone:
-            print("Spostamento a sinistra")
+            print("Moving left")
             return 'left'
         else:
-            print("Nessun spostamento")
+            print("No movement")
             return 'none'
 
     def center(self):
