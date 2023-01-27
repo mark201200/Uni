@@ -1,5 +1,4 @@
-/*Definizione delle celle. loc(nome,x,y)
-labirinto 5x5
+/*Labirinto 5x5 - l'agente deve prendere la principessa e raggiungere l'uscita, evitando il drago.
   ___________
  | |   _   _|
  | |    | | |
@@ -8,7 +7,7 @@ labirinto 5x5
  |_| _ _ _ _|
 */
 
-
+%Definizione delle celle. loc(nome,x,y)
 loc('Cella00',0,0).
 loc('Cella10',1,0).
 loc('Cella20',2,0).
@@ -47,7 +46,7 @@ loc('Cella44',4,4).
 %arc(c1,c2) , il costo non c'è, lo assumo 1
 
 %Espande un percorso, in NuoviPercorsi si trovano tutti i percorsi ottenibili espandendo il percorso
-%QUESTO PREDICATO PUO ESSERE USATO SOLO CON LA DEFINIZIONE ARC!
+%QUESTO PREDICATO PUO' ESSERE USATO SOLO CON LA DEFINIZIONE ARC!
 espandi_percorso([Nodo|Percorso],NuoviPercorsi):-
     findall([NuovoNodo,Nodo|Percorso],
             ((arc(Nodo,NuovoNodo);arc(NuovoNodo,Nodo)), \+ member(NuovoNodo,Percorso)),
@@ -105,7 +104,7 @@ arc('Cella30','Cella40').
 %Definisco i muri e dico che arc c'è se non c'è un muro.
 
 %Espande un percorso, in NuoviPercorsi si trovano tutti i percorsi ottenibili espandendo il percorso
-%QUESTO PREDICATO PUO ESSERE USATO SOLO CON LA DEFINIZIONE MURI!
+%QUESTO PREDICATO PUO' ESSERE USATO SOLO CON LA DEFINIZIONE MURI!
 espandi_percorso([Nodo|Percorso],NuoviPercorsi):-
     findall([NuovoNodo,Nodo|Percorso],
             ((arc(Nodo,NuovoNodo)), \+ member(NuovoNodo,Percorso)),
@@ -133,16 +132,8 @@ arc(A,B):-						%C'è un arco...
     %Utilizzando l'altra definizione il programma è 80 volte più veloce.
 */
 
-%Soluzione al problema (ad esempio la principessa)
-move([]).
-
-move([Cella|Percorso]):-
-    retractall(agent(_)),	%Rimuovo la cella dell'agente dalla KB
-    assert(agent(Cella)),	%Aggiungo la nuova cella nella KB
-    loc(Cella,X,Y),			%X,Y sono le coordinate della prossima cella (ci servono solo per stampare)
-    write("L'agente si trova in:"),write(X),write(','),write(Y),nl,
-    move(Percorso).			%Chiamata ricorsiva per il resto del percorso
-    
+%Soluzione al problema
+%Esempio: problema('Cella00','Cella44','Cella24','Cella04')
 problema(Start,Principessa,Drago,Exit):-
     assert(drago(Drago)),							%Asserisco nella KB la cella del drago  
     assert(agent(Start)),  							%Asserisco nella KB la cella dell'agente
@@ -156,14 +147,24 @@ problema(Start,Principessa,Drago,Exit):-
     move(Percorso2),
     write("Grande! Principessa salvata.").
     
+%Movimento dell'agente negli stati (celle)
+move([]).
+
+move([Cella|Percorso]):-
+    retractall(agent(_)),	%Rimuovo la cella dell'agente dalla KB
+    assert(agent(Cella)),	%Aggiungo la nuova cella nella KB
+    loc(Cella,X,Y),			%X,Y sono le coordinate della prossima cella (ci servono solo per stampare)
+    write("L'agente si trova in:"),write(X),write(','),write(Y),nl,
+    move(Percorso).			%Chiamata ricorsiva per il resto del percorso	
+	
+%Algoritmo di ricerca A*	
 %Utilizzo: a_star([['Start']],'Goal',X)
 %Ad esempio, per calcolare (0,4) -> (4,0) , a_star([['Cella04']],'Cella40',X).
-
-a_star([[Goal]],Goal,[Goal]):-!.
+a_star([[Goal]],Goal,[Goal]):-!.							%Utilizzato se cerco di fare A* da un nodo verso se stesso.
 
 a_star([[Goal|Percorso]|_],Goal,[Goal|Percorso]).			%Se il percorso in testa alla lista è un percorso che porta al goal, allora ho fatto!
 
-a_star([[Cella|_]|Percorsi],Goal,PercorsoMigliore):-	%Se il percorso che sto esaminando finisce in un drago, scarto il percorso!
+a_star([[Cella|_]|Percorsi],Goal,PercorsoMigliore):-		%Se il percorso che sto esaminando finisce in un drago, scarto il percorso!
     drago(Cella),
     a_star(Percorsi,Goal,PercorsoMigliore).
 
@@ -178,7 +179,7 @@ a_star([Percorso|Percorsi],Goal,PercorsoMigliore):-
     a_star(PercorsiOrdinati,Goal,PercorsoMigliore).			%Chiamata ricorsiva
 
 %ordina_percorsi ordina i percorsi secondo il valore f dell'ultimo nodo.
-%il metodo di sort è un semplice merge sort, non lo commento
+%Il metodo di sort è un semplice merge sort, non lo commento
 ordina_percorsi([],_,[]).
 ordina_percorsi([X],_,[X]).
 ordina_percorsi(Percorsi,Goal,PercorsiOrdinati):-
@@ -202,6 +203,7 @@ unisci([H1|T1],[H2|T2],Goal,[H2|T]):-
     unisci([H1|T1],T2,Goal,T).
     
 %Predicato ausiliario per l'ordinamento
+%Divide una lista in due
 dividi(Lista, A, B) :-
     append(A, B, Lista),
     length(A, N),
