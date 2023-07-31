@@ -1,0 +1,6 @@
+esegui sia gdb che programma con:
+env -i PWD="/home/marco/Desktop/Overflow_Docs/X86_NX_RET2LIBC" SHELL="/bin/bash" SHLVL=0 /home/marco/Desktop/Overflow_Docs/X86_NX_RET2LIBC/vuln
+
+in gdb prima di fare qualsiasi cosa fai:
+unset env LINES
+unset env COLUMNS
