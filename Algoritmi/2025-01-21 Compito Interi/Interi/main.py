@@ -16,7 +16,10 @@ def retrieve(i, n):
 def opt(i, n):
     # Se n non è un int esco direttamente.
     if not (isinstance(n, int)):
-        return False
+        if n.is_integer():
+            n = int(n)
+        else:
+            return False
 
     # i non può essere minore di 1, in questo caso esco.
     if i < 1:
@@ -34,7 +37,7 @@ def opt(i, n):
     return opt(i - 1, n - valori[i]) or opt(i - 1, n / valori[i]) or opt(i - 1, n)
 
 
-valori = [1, 2, 30, 8]
+valori = [1, 2, 4, 2]
 length = len(valori) - 1
 N = 10
 
